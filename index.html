@@ -3,18 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This is a simple qr code page">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    </noscript>
     <link
       rel="icon"
       href="resources/favicon.ico"
       type="image/x-icon"
       sizes="96x96"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
     <title>QR code generator | devChallenges.io</title>
 
     <!--You are welcome to delete these styles or modify them in your own stylesheet -->
@@ -165,9 +170,9 @@
   </head>
   <body>
     <div>
-      <img class="background" src="resources/qa-bg.jpg" alt="background" loading="lazy"/>
+      <img class="background" src="resources/qa-bg.jpg" alt="background" loading="lazy" style="width: 100%; height: auto;"/>
       <div id="main-page">
-        <img src="resources/Logo.svg" alt="qr code logo" loading="lazy"/>
+        <img src="resources/Logo.svg" alt="qr code logo"/>
         <hr>
         <div class="input-container">
           <input class="input-box" type="text" placeholder="Enter an url"/>
@@ -177,7 +182,7 @@
     </div>
 
     <div class="qr-main">
-       <img src="resources/Logo.svg" alt="qr code logo" loading="lazy" class="logo-top"/>
+       <img src="resources/Logo.svg" alt="qr code logo" class="logo-top"/>
       <div class="main">
         <div class="circle">
           <div class="qr-container">
@@ -203,9 +208,9 @@
     </div>
     
   </body>
-  <script>
+  <script defer>
     $('document').ready(function(){
-      //$('#main-page').hide()
+      $('.qr-main').hide()
       $('.input-box').on('change', function(){
         $('#qr-btn').on('click', function(){
          const link = $('.input-box').val()
@@ -213,6 +218,7 @@
                 console.log(link)
                 
                 $('#main-page').hide()
+                $('.qr-main').show()
               
               } 
            const qrCode = new QRCode(document.getElementById("qrcode"), {
